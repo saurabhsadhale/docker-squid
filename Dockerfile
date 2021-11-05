@@ -11,7 +11,7 @@ RUN apt-get update \
  && rm -rf /var/lib/apt/lists/*
 
 COPY entrypoint.sh /sbin/entrypoint.sh
-RUN chmod 755 /sbin/entrypoint.sh
+RUN chmod 755 /sbin/entrypoint.sh && chmod 777 /var/log/squid
 
 EXPOSE 3128/tcp
 ENTRYPOINT ["/sbin/entrypoint.sh"]
